@@ -1,12 +1,12 @@
 {
   "name": "training-three",
-  "sideEffects": false,
+  "sideEffects": ["*.css"],
   "version": "1.0.0",
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack serve --open --config webpack.dev.js --env development",
-    "build": "webpack --config webpack.prod.js --env production"
+    "start": "NODE_ENV=development webpack serve --open --config webpack.dev.js --env development",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js --env production"
   },
   "keywords": [],
   "author": "Sebastian Gonzalez Quintero <sgq995@gmail.com>",
@@ -21,6 +21,8 @@
     "html-webpack-plugin": "^5.1.0",
     "mini-css-extract-plugin": "^1.3.6",
     "style-loader": "^2.0.0",
+    "ts-loader": "^8.0.17",
+    "typescript": "^4.1.5",
     "webpack": "^5.21.2",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",

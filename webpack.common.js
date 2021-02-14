@@ -3,20 +3,25 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.js'),
+  entry: path.resolve(__dirname, 'src/index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[hash].bundle.js'
+    filename: '[name].[contenthash].js'
   },
 
   module: {
     rules: [
       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+
+      {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
 
       {
@@ -36,8 +41,16 @@ module.exports = {
     ],
   },
 
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
+
   plugins: [
     new CleanWebpackPlugin(),
+
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }),
 
     new HtmlWebpackPlugin({
       title: 'Development',
