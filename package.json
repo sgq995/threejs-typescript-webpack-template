@@ -1,0 +1,18 @@
+{
+  "name": "training-three",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sebastian Gonzalez Quintero <sgq995@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.125.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.21.2"
+  }
+}
