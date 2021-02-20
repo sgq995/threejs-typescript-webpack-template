@@ -5,7 +5,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development webpack serve --open --config webpack.dev.js --env development",
+    "start": "NODE_ENV=development webpack serve --host 0.0.0.0 --open --config webpack.dev.js --env development",
     "build": "NODE_ENV=production webpack --config webpack.prod.js --env production"
   },
   "keywords": [],
